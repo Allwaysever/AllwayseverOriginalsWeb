@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Allwaysever Originals</title>
+    <style>
+        /* CSS dari home header.html */
+body {
+    background-color: #0f0f0f;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: left;
+    margin: 0; /* Pastikan ini 0 */
+    padding: 0; /* Pastikan ini 0 */
+}
+
+        .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px; /* Ubah padding menjadi atas: 0, kanan-bawah-kiri: 20px */
+}
+
+/* Matikan highlight default */
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.2);
+}
+
+/* Kasih efek klik custom */
+.btn:active {
+  transform: scale(0.97);
+  opacity: 0.8;
+  transition: 0.1s;
+  border-radius: 25px; /* ikut rounded */
+}
+
+        /* CSS untuk Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 25px;
+            margin-bottom: 50px;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-item h1 {
+            font-size: 1em;
+            font-weight: normal;
+            margin-bottom: 0.2em;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .carousel-item h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 0;
+            color: #ffce00;
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .header-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* MEDIA QUERY UNTUK LAYAR MOBILE */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .carousel-container {
+                height: 250px;
+                margin-bottom: 30px;
+            }
+
+            .carousel-item h1 {
+                top: 20px;
+                left: 15px;
+            }
+
+            .carousel-item h2 {
+                top: 50px;
+                left: 15px;
+                font-size: 1.2em;
+            }
+        }
+
+    /* CSS baru untuk thumbnail episode (rasio 3:4) */
+    .video-item-episode {
+        height: 240px; /* Atur tinggi agar sesuai rasio 3:4 dari lebar default 180px */
+        background-color: #000;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .video-item-episode iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Media query untuk mobile */
+    @media (max-width: 768px) {
+        .video-item-episode {
+            height: 180px; /* Sesuaikan tinggi untuk layar mobile */
+        }
+    }
+
+        /* CSS dari home.html */
+        .video-series {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .video-series h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .video-list {
+            display: flex;
+            gap: 15px;
+            overflow-x: scroll;
+            padding-bottom: 10px;
+        }
+
+        .video-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-item-container {
+            position: relative;
+            min-width: 180px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .video-item {
+            height: 320px;
+            background-color: #222;
+            border-radius: 25px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .video-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-title-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .video-title {
+            display: block;
+            font-size: 0.9em;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .release-year {
+            display: block;
+            font-size: 0.8em;
+            color: #aaa;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+        
+        /* CSS dari info.html yang sudah diperbaiki */
+        .news-card {
+            background-color: #212121;
+            border-radius: 25px;
+            padding: 20px;
+            width: 350px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .news-date {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .news-info {
+            color: white;
+            margin-bottom: 1px;
+        }
+        
+        .news-link {
+            text-align: left;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .news-button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.85em;
+            margin-top: 20px;
+            width: 45%;
+            font-weight: bold;
+        }
+        
+        /* Media query untuk mobile, agar card tidak terlalu lebar */
+        @media (max-width: 480px) {
+            .news-card {
+                width: 90%;
+            }
+        }
+        
+/* Gaya untuk formulir, disesuaikan dengan gaya news-card */
+.form-card {
+    background-color: #212121;
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card h1, .form-card p {
+    text-align: center;
+    color: #fff;
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.form-card input[type="text"],
+.form-card select,
+.form-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.form-card button {
+    background-color: #fff;
+    color: #0f0f0f;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Gaya untuk tombol changelog */
+.changelog-button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 59px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+margin-bottom: 20px;
+}
+
+/* Gaya untuk pop-up */
+.popup-overlay {
+    display: none; /* Sembunyikan pop-up secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang buram */
+    z-index: 10000;
+    justify-content: center;
+    align-items: center
+}
+
+.popup-content {
+    background-color: #0f0f0f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Gaya untuk setiap kartu changelog */
+.changelog-card {
+    background-color: #252525; /* Sesuaikan dengan warna kartu lainnya */
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 20px; /* Jarak antara setiap kartu */
+}
+
+.changelog-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.changelog-card h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ffce00;
+    margin-bottom: 5px; /* Tambahkan jarak di bawah judul */
+}
+
+.changelog-card p {
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.5; /* Tambah jarak antar baris */
+    margin-bottom: 10px; /* Tambah jarak di bawah setiap paragraf */
+}
+
+.changelog-card b {
+    color:#fff
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+.popup-close:hover {
+    color: #fff;
+}
+        
+        .footer {
+            /* Gaya untuk footer */
+            background-color: #0f0f0f;
+            color: #777;
+            font-family: Arial, sans-serif;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-text {
+            /* Gaya untuk teks di dalam footer */
+            margin: 0;
+            font-size: 14px;
+         }
+    </style>
+</head>
+<body>
+<div class="container">
+</div>
+
+    <div class="carousel-container">
+<div class="carousel-item active">
+    <a href="#" class="header-link" id="changelog-link">
+        <img class="carousel-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizQhMiT4rTBaucRYe89qejHs9PiXW__70mwfjra3DKCbcLdHSQJs9CeblfepGVrp415WFXDUOn28DU23tZpth7RS9PYRjLt3M2ZqCaMMpD4gC4qnkswG4DPtLmCPTL4CplvRN7e0TZuCYXKMyOCRiEy5sGzrMUXtsYYn6o1l4IZ9VkkZcenDXpb4kKAWDY/s4128/20250712_120932.jpg" alt="Carousel img 1">
+        <h1>Update features</h1>
+        <h2>Yuk lihat Changelog web Allwaysever Originals!</h2>
+    </a>
+</div>
+        <div class="carousel-item">
+            <a href="https://sites.google.com/view/allwayseveroriginals/about" class="header-link">
+                <img class="carousel-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrKiXQkg0aaly_3JIC3sEPI_7qOliDhY7ZeHsHYL0LjqeG0AFTXPiaj7WDn0Dc9_cH8fdcHlGAD_f3Q2a4JkD_0SX1H8RnHJj4qZCIg4QDxessP2Ac90Gym9LIbzv4WKaBXoTEfDMUJWVnwU2ajpdlhfFsNBaQJJxPgaINpJ6F03axq7hYcegQJkchRw21/s4128/20250807_182935-01.jpeg" alt=" Carousel img 2">
+                <h1>About Page</h1>
+                <h2>Kenalan yuk sama para Allwaysever Creators!</h2>
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="JVT/JVT3.html" class="header-link">
+                <img class="carousel-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXUIGfvHZtBHG6l7SULOyLWiMgiD1BYl-EcnlrFUb2DwpiQBKjNwLr0jvEo9C7fand5MR5pgKjfbV7B_nijiel54PHj8S07zFo_OnvjbUdRWG9KmrB0_XtOrnyhUtNlVKRkkeulp0oHBIh5a7v3_3WJeeKJary7ZTWKAJ8CIDOQmgnPX_aOedpf5MIxUEs/s320-rw/20250810_002346.jpg" alt="Carousel img 3">
+                <h1>Next Project</h1>
+                <h2>Allwaysever Originals: Parangtritis.<br>Film pendek yang bakal nemenin ultah Jogja Vlog Topic!</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="video-series">
+            <h2>Currently Airing</h2>
+            <div class="video-list">
+                <a href="JVT/JVT3.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5giPt0fG2Um-udUqyXQfAVLfaMNHYdHnlWCEJ7u6YzOTAtW6Z4YYie6gt2Txjc2SJv-kLlc0c9b61oY4R9sXJyscl5QAGuWIRrlMjr5DIxeViWkpbr9NZhO0u2V_W8hVwsF__x_cNrqM_XI08qzafMOYtmHokhEwjbVKwMaIWe4w0P4M1I7RB4Ek8H_5V/s16000-rw/20250809_235954.png" alt="JVT3">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic Season 3</span>
+                        <span class="release-year">Series • Ongoing</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+<div class="video-series">
+    <h2>Episode Terbaru</h2>
+    <div class="video-list">
+        <a href="https://www.youtube.com/watch?v=e1AgSZk-y28&t=1s" class="video-item-container">
+           <div class="video-item-episode">
+    <iframe
+        src="https://www.youtube.com/embed/e1AgSZk-y28?autoplay=1&controls=0&mute=1&loop=1&playlist=e1AgSZk-y28&disablekb=1&rel=0&start=230"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+</div>
+            <div class="video-title-container">
+                <span class="video-title">Bersejarah dan Sakral, Situs Warungbroto</span>
+                <span class="release-year">Jogja Vlog Topic 3 Episode 6 - 23.08.2025</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+        <div class="video-series">
+            <h2>Vlogs</h2>
+            <div class="video-list">
+                <a href="JVT/JVT.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6hvNJGd-sT_O-WqzPo0N4vIIenJZDu5_yFoXtOBiT8bbrw79MNDZIFpt3dTRXR1uE-OZln6Q3MyoJHNFjXGPVE9ubf78W-oCm0RKBaGmkeRzUtYa0jJIDeNWaE5Jn7v9wUwYRgKD8zeh7DrPis5TK_ERyTkKlHw2y6OPyvGF3yDOzxjKe648Qo5gnbhTe/s3264/20250810_142837.png" alt="JVT">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic</span>
+                        <span class="release-year">Series • 2024</span>
+                    </div>
+                </a>
+                
+                <a href="JVT/JVT2.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2K0-k2KubsxJGjcgpV24QDL-1WFQ8TX2bb9deGrjer1dTXu5rtl_ztTpm8RSjXQiJu1_va0AWyoxgMUbJwGMNfbykwjmhM3vnFR_nzauOCFD34_VUXwhCmYBkApL821mIiVbCYk55jyA7GEnSqdeyfIqiUemUnPANEdkL3pY2PhXTvPDhP9L0J4qGdaUD/s1920/20250810_085638.jpg" alt="JVT2">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic Season 2</span>
+                        <span class="release-year">Series • 2024-2025</span>
+                    </div>
+                </a>
+
+                <a href="JVT/JVT3.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5giPt0fG2Um-udUqyXQfAVLfaMNHYdHnlWCEJ7u6YzOTAtW6Z4YYie6gt2Txjc2SJv-kLlc0c9b61oY4R9sXJyscl5QAGuWIRrlMjr5DIxeViWkpbr9NZhO0u2V_W8hVwsF__x_cNrqM_XI08qzafMOYtmHokhEwjbVKwMaIWe4w0P4M1I7RB4Ek8H_5V/s16000-rw/20250809_235954.png" alt="JVT3">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic Season 3</span>
+                        <span class="release-year">Series • Ongoing</span>
+                    </div>
+                </a>
+                <a href="https://sites.google.com/view/jvt3tosoloproject/home" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVAuT_kIMkwz_LZJsGK-FFSjVtiQw9D0ho5ojXkMUmQRXyWD2fIMrslZ7fS-jhILvV6oJ9N1xx_vQLhQR03AOw5L6J5FrwitCK1eoo8WaIO_1kXTAQLN737HfTBVCWpU_1zve4e4XceJaeGRUQYZH9pG4OQxTIPhAVCkyXGpEJewWRjSdfKTe-tngHpeYW/s3264/20250810_145302.png" alt="JVT3TS">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">#JVT3ToSolo</span>
+                        <span class="release-year">Mini-series • 2027</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="video-series">
+            <h2>Adventure</h2>
+            <div class="video-list">
+                <a href="#" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://via.placeholder.com/180x320/222/fff?text=Coming+Soon" alt="PRTS">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Parangtritis.</span>
+                        <span class="release-year">Short Movie • 14 Sep 2025</span>
+                    </div>
+                </a>
+
+                <a href="https://sites.google.com/view/jvt3tosoloproject/home" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVAuT_kIMkwz_LZJsGK-FFSjVtiQw9D0ho5ojXkMUmQRXyWD2fIMrslZ7fS-jhILvV6oJ9N1xx_vQLhQR03AOw5L6J5FrwitCK1eoo8WaIO_1kXTAQLN737HfTBVCWpU_1zve4e4XceJaeGRUQYZH9pG4OQxTIPhAVCkyXGpEJewWRjSdfKTe-tngHpeYW/s3264/20250810_145302.png" alt="JVT3TS">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">#JVT3ToSolo</span>
+                        <span class="release-year">Mini-series • 2027</span>
+                    </div>
+                </a>
+
+                <a href="JVT/JVT3.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5giPt0fG2Um-udUqyXQfAVLfaMNHYdHnlWCEJ7u6YzOTAtW6Z4YYie6gt2Txjc2SJv-kLlc0c9b61oY4R9sXJyscl5QAGuWIRrlMjr5DIxeViWkpbr9NZhO0u2V_W8hVwsF__x_cNrqM_XI08qzafMOYtmHokhEwjbVKwMaIWe4w0P4M1I7RB4Ek8H_5V/s16000-rw/20250809_235954.png" alt="JVT3">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic Season 3</span>
+                        <span class="release-year">Series • Ongoing</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+<div class="form-card">
+    <h1 style="font-size: 1.5em; text-align: center;">Berkontribusilah dengan Allwaysever Team!</h1>
+    <p style="text-align: center;">Kirimkan kritik, saran, atau permintaan kolaborasi. Kami akan berusaha merespons dengan cepat!</p>
+    <form id="emailForm">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required>
+        
+        <label for="tujuan">Tujuan:</label>
+        <select id="tujuan" name="tujuan" required>
+            <option value="">Pilih Tujuan...</option>
+            <option value="Ngelaporin adanya Bug">Lapor Bug</option>
+            <option value="Nambahin fitur atau halaman">Tambah fitur / Halaman baru</option>
+            <option value="Ngasih semangat!">Memberikan semagat</option>
+            <option value="Pengen collab">Ingin berkolaborasi</option>
+            <option value="JoinAws">Gabung dengan Allwaysever</option>
+            <option value="Lainnya">Lainnya</option>
+        </select>
+
+        <label for="pesan">Pesan:</label>
+        <textarea id="pesan" name="pesan" rows="5" required></textarea>
+
+        <button type="submit">Kirim</button>
+    </form>
+</div>
+
+
+        <div class="video-series">
+            <h2>Creator's Pick</h2>
+            <div class="video-list">
+                <a href="JVT/JVT3.html" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5giPt0fG2Um-udUqyXQfAVLfaMNHYdHnlWCEJ7u6YzOTAtW6Z4YYie6gt2Txjc2SJv-kLlc0c9b61oY4R9sXJyscl5QAGuWIRrlMjr5DIxeViWkpbr9NZhO0u2V_W8hVwsF__x_cNrqM_XI08qzafMOYtmHokhEwjbVKwMaIWe4w0P4M1I7RB4Ek8H_5V/s16000-rw/20250809_235954.png" alt="JVT3">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Jogja Vlog Topic Season 3</span>
+                        <span class="release-year">Series • Ongoing</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="video-series">
+            <h2>Next Projects</h2>
+            <div class="video-list">
+                <a href="#" class="video-item-container">
+                    <div class="video-item">
+                        <img src="#" alt="PRTS">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Parangtritis.</span>
+                        <span class="release-year">Short Movie • 14 Sep 2025</span>
+                    </div>
+                </a>
+
+                <a href="https://sites.google.com/view/jvt3tosoloproject/home" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVAuT_kIMkwz_LZJsGK-FFSjVtiQw9D0ho5ojXkMUmQRXyWD2fIMrslZ7fS-jhILvV6oJ9N1xx_vQLhQR03AOw5L6J5FrwitCK1eoo8WaIO_1kXTAQLN737HfTBVCWpU_1zve4e4XceJaeGRUQYZH9pG4OQxTIPhAVCkyXGpEJewWRjSdfKTe-tngHpeYW/s3264/20250810_145302.png" alt="JVT3TS">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">#JVT3ToSolo</span>
+                        <span class="release-year">Mini-series • 2027</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    
+        <div class="video-series">
+            <h2>Cenceled Projects</h2>
+            <div class="video-list">
+                <a href="https://youtube.com/" class="video-item-container">
+                    <div class="video-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijri7lD1JgOLbuHYJA1c9wvA5RVL-m_J3P20OUUfFHMzBpcatC4sOia3YfJ4X3I1yvDMnaIQCMurSTqACY6RTYSvDLdH7GAk8hNYviWHUVe08mZtOp3-MeBa8CGQrJCa7SWKQgKvtUBOqze0c9vUfKCKBQmLpRiR635xFNlMa-1CTE75V9rhvMXBJ72ejq/s1920/20250813_043115.png" alt="AEOS ETCC">
+                    </div>
+                    <div class="video-title-container">
+                        <span class="video-title">Explore the Capital City</span>
+                        <span class="release-year">Series • 2024 (Cenceled)</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+<button class="changelog-button" id="changelog-button">Changelogs</button>
+
+<div id="changelog-popup" class="popup-overlay">
+    <div class="popup-content">
+        <span class="popup-close" id="popup-close">×</span>
+        <h2>Changelogs</h2>
+        <div class="changelog-list">
+            <div class="changelog-card">
+                <h3>v3.0.0-BETANEWPAGE2.0</h3>
+<p>1. <b>Perubahan UI 100%</b> untuk halaman <code>JVT, JVT2 , JVT3</code>.</p>
+<p>2. <b>Halaman baru untuk semua about series</b>.</p>
+<p>3. <b>Optimalisasi UI</b> Untuk Player Tiap Episode series</p>
+<p>4. <b>Fitur kunci baru khusus setiap halaman About Series.</b> Poster atau artwork, judul dan tanggal rilis, bagian trailer/episode pertama series, sipnosis series, playlist series.</p>
+            </div>
+            <div class="changelog-card">
+                <h3>v3.0.0-BETANEWPAGE1.0</h3>
+<p>1. <b>Penambahan halaman</b> untuk episode tiap series (Masih Beta).</p>
+<p>2. <b>Rewording Changelog.</b> Penambahan tag html <code>code</code> agar konten teks berbasis kode lebih dapat terlihat.</p>
+<p>3. <b>Penambahan nama versi.</b> Menjadi <code>v{MAYOR}.{MINOR}.{PATCH}-BETADEVNEWPAGE1.0</code> dikarenakan mode development baru. Bukan fitur baru tetapi pengembangan halaman baru.</p>
+            </div>
+            <div class="changelog-card">
+                <h3>v3.0.0-BETADEVMODE5.0</h3>
+<P>1. <b>Penghapusan mode tema terang.</b> lagian siapa juga yang mau tema seterang itu?</p>
+
+<P>2. <b>Bagian "changelogs" diubah</b> bagian changelogs di ubah menjadi pop-up. Sehingga lebih hemat ruang.</p>
+
+<P>3. <b>reword bagian form</b> ada bagian yang cukup formal.</p>
+
+<p>4. <b>Bagian "Tujuan" menggunakan opsi dropdown</b>  jadi bisa lebih spesifik. Buka  random. Tapi tenang kok, kamu bisa pilih "lainya" untuk jawaban random :)</p>
+            </div>
+            <div class="changelog-card">
+                <h3>v3.0.0-BETADEVMODE1.0</h3>
+        <p>1. <b>Ada tombol buat ganti tema!</b> Mulai ada nih tema terang! Jadinya buat para gaptek dan para pejabat (Boomers) bisa ngeliat ini web tanpa perlu skill pantek (pandai teknologi).</p>
+
+<p>2. <b>Formulir lebih ditambah!</b> Jadi ada "tujuan" buat lu yang mau ngirim emailnya!</p>
+
+<p>3. <b>UI lebih "Super Rounded"</b> Buat lu yang tau css, pokoknya ini semua bentuk, tombol, dll di tambahin jadi <code>border-radius: 25px</code>.</p>
+
+<p>4. <b>Pengubahan FAQ menjadi changelog!</b> Karena FAQ lebih cocok pake halaman khusus. Jadinya ini dijadiin changelog, toh posisinya dibawah.</p>
+
+<p>5. <b>Penambahan bagian atau topik: Adventure</b>
+Yo..... Nambah genre nih....</p>
+            </div>
+            <div class="changelog-card">
+                <h3>v2.4.0</h3>
+        <p>1. <b>Episode Terbaru Langsung Kelihatan!</b>
+Sekarang, kamu bisa lihat episode-episode terbaru kami langsung di halaman utama! Tampilan gambarnya juga sudah kami perbaiki biar pas dan rapi, jadi kamu lebih gampang buat nonton dan enggak ketinggalan konten baru.</p>
+
+<p>2. <b>Ada Bagian Tanya Jawab (FAQ)</b>
+Bingung mau tanya apa? *Coba cek dulu di bagian Pertanyaan yang Sering Diajukan!* Kami sudah kumpulkan beberapa jawaban untuk pertanyaan-pertanyaan yang paling sering ditanyakan, jadi kamu bisa dapat info lebih cepat.</p>
+
+<p>3. <b>Fix kalimat dan Kata di bagian form</b>
+Kini diubah menjadi lebih ramah! Kamu sekarang gak perlu bingung lagi dengan apa kata yang kurang nyambung!</p>
+            </div>
+            </div>
+    </div>
+</div>
+    
+
+<div style="left:0; width:100%; height:0; position:relative; padding-bottom:25%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/8025355" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="Ultah"></iframe></div>
+
+    <footer class="footer">
+        <p class="footer-text" style="font-size: 8px;">&copy 2025 Allwaysever / Allwaysever Originals</p>
+        <p class="footer-text" style="font-size: 8px;">v3.0.0-BETANEWPAGE2.0</p>
+    </footer>
+
+    </div>
+    
+    <script>
+const carouselItems = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+const intervalTime = 5000; // detik
+
+function showNextItem() {
+    carouselItems[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    carouselItems[currentIndex].classList.add('active');
+}
+
+setInterval(showNextItem, intervalTime);
+
+// Skrip JavaScript dari form.html
+const form = document.getElementById('emailForm');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const penerima = 'allwaysever.info@gmail.com'; 
+    const nama = document.getElementById('nama').value;
+    const pesan = document.getElementById('pesan').value;
+    const tujuan = document.getElementById('tujuan').value;
+
+    // Ambil kode versi dari changelog dan simpan di variabel 'ver'
+    const ver = `v3.0.0-BETANEWPAGE2.0`;
+    
+    // Tambahkan informasi versi ke dalam isi email dengan format baru
+    const isiEmail = `Hai Allwaysever Creators! Aku ${nama} pengen berpartisipasi buat pengembangan web Allwaysever Originals\n\n+×+×+×+×+×+×+×+×\n\nVersi web saat pesan ini dikirim: ${ver}\nPerihal: ${tujuan}.\n${pesan}\n\n+×+×+×+×+×+×+×+×\n\nOk, cukup gini aja sih yang bisa aku lakukan. Makasih atas penerimaannya. Semoga kiriman ini bisa membantu. Semangat ya Allwaysever Creators!\n\nDari,\n${nama} Sebagai Pendukung Development Web`;
+    
+    const subjekOtomatis = `Kiriman buat web Allwaysever Originals! dari ${nama}`;
+    
+    const subjekURL = encodeURIComponent(subjekOtomatis);
+    const pesanURL = encodeURIComponent(isiEmail);
+
+    const mailtoLink = `mailto:${penerima}?subject=${subjekURL}&body=${pesanURL}`;
+
+    window.location.href = mailtoLink;
+});
+
+// Ambil elemen pop-up
+const changelogButton = document.getElementById('changelog-button');
+const popupOverlay = document.getElementById('changelog-popup');
+const closeButton = document.getElementById('popup-close');
+
+// Ambil elemen link carousel
+const changelogLink = document.getElementById('changelog-link');
+
+// Fungsi untuk menampilkan pop-up
+function showPopup() {
+    popupOverlay.style.display = 'flex';
+}
+
+// Fungsi untuk menyembunyikan pop-up
+function hidePopup() {
+    popupOverlay.style.display = 'none';
+}
+
+// Event listener untuk tombol, link, dan area luar pop-up
+changelogButton.addEventListener('click', showPopup);
+closeButton.addEventListener('click', hidePopup);
+changelogLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    showPopup();
+});
+
+// Sembunyikan pop-up jika pengguna mengklik di luar area konten
+window.addEventListener('click', function(event) {
+    if (event.target === popupOverlay) {
+        hidePopup();
+    }
+});
+    </script>
+</body>
+</html>
