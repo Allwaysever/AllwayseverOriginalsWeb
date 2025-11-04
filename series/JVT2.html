@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JVT2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* UPGRADE: SRUI Typography Arial */
+            margin: 0;
+            background-color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E */
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
+        }
+        
+        /* Gaya baru untuk poster dan judul series */
+        .series-header {
+            text-align: center;
+            padding: 20px;
+        }
+        .series-poster {
+            max-width: 50%;
+            height: auto;
+            border-radius: 20px; /* UPGRADE: Minimal 12px-25px */
+            margin-bottom: 20px;
+        }
+        .series-title {
+            font-size: 1em;
+            margin: 0;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
+        }
+.series-year {
+            font-size: 0.5em;
+            margin-top: 10px;
+            color: #aaa;
+        }
+
+        /* Gaya dari player(Copy).html */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: none;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-info {
+            padding: 20px;
+        }
+        .video-info h1 {
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .video-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 15px;
+            color: #aaaaaa;
+        }
+        .video-details span {
+            font-size: 10px;
+        }
+        
+        /* Gaya untuk sinopsis */
+        .synopsis-section {
+            padding: 20px;
+            border-top: 1px solid #3d3d3d;
+        }
+        .synopsis-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .synopsis-section p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #ccc;
+        }
+        
+        .video-list-container {
+            padding: 20px;
+            border-top: 1px solid #3d3d3d;
+        }
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .video-item {
+            display: flex;
+            background-color: #212121; /* UPGRADE: SRUI Card/Bubble #212121 */
+            border-radius: 12px; /* UPGRADE: Minimal 12px */
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+        .thumbnail-container {
+            position: relative;
+            flex-shrink: 0;
+            width: 160px;
+            height: 90px;
+            overflow: hidden;
+            border-radius: 12px; /* UPGRADE: Minimal 12px */
+        }
+        .thumbnail-container .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thumbnail-container .duration {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 2px 5px;
+            font-size: 0.7em;
+            border-radius: 4px; /* UPGRADE: Sedikit membulat */
+        }
+        .video-details-item {
+            padding: 10px 15px;
+            flex-grow: 1;
+        }
+        .video-details-item .video-title {
+            font-size: 1em;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
+        }
+        .video-details-item .uploader-name {
+            font-size: 0.8em;
+            color: #aaaaaa;
+            margin: 0;
+        }
+        @media (max-width: 480px) {
+            .thumbnail-container {
+                width: 120px;
+                height: 67.5px; /* Rasio 16:9 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="series-header">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2K0-k2KubsxJGjcgpV24QDL-1WFQ8TX2bb9deGrjer1dTXu5rtl_ztTpm8RSjXQiJu1_va0AWyoxgMUbJwGMNfbykwjmhM3vnFR_nzauOCFD34_VUXwhCmYBkApL821mIiVbCYk55jyA7GEnSqdeyfIqiUemUnPANEdkL3pY2PhXTvPDhP9L0J4qGdaUD/s16000-rw/20250810_085638.jpg" alt="JVT Series Poster" class="series-poster">
+        <h1 class="series-title">Jogja Vlog Topic Season 2 (JVT2)</h1>
+<h2 class="series-year">2024-2025</h2>
+    </div>
+
+    <div class="container">
+        <div class="video-player">
+            <iframe
+                src="https://www.youtube.com/embed/kJfXesGMkVs"
+                title="JVT2 Episode 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <a href="https://m.youtube.com/watch?v=kJfXesGMkVs">
+                <h1>Si Penghitung dan Sang Emas Lewat!</h1>
+            </a>
+            <div class="video-details">
+                <span>Project Code: JVT2EPS1(8)</span>
+                <span>Sabtu, 30 November 2024</span>
+            </div>
+        </div>
+
+        <div class="synopsis-section">
+            <h2>Sinopsis</h2>
+            <p>
+                Melanjutkan perjalanan eksplorasi, JVT2 hadir dengan cerita yang lebih dalam dan pengambilan gambar yang lebih sinematik. Musim ini fokus pada detail-detail kecil yang membuat Yogyakarta istimewa, mulai dari interaksi sederhana hingga keindahan pemandangan yang sering terlewatkan. Dengan narasi yang lebih kuat, setiap episode JVT2 bukan hanya vlog, melainkan sebuah cerita visual yang akan membawamu lebih dekat dengan denyut nadi kota.
+            </p>
+        </div>
+
+        <div class="video-list-container">
+            <h2>Semua Episode</h2>
+            <div class="video-list">
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS1" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi_webp/kJfXesGMkVs/hqdefault.webp" alt="Thumbnail 1" class="thumbnail">
+                        <span class="duration">14.44</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Si Penghitung dan Sang Emas Lewat!</h2>
+                        <p class="uploader-name">Episode 1 (8) • 30 November 2024</p>
+                    </div>
+                </a>
+        
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS2" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi_webp/TcLr9i_yH4I/hqdefault.webp" alt="Thumbnail 2" class="thumbnail">
+                        <span class="duration">14.59</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Dingin, Tetapi Tidak kejam 🥶</h2>
+                        <p class="uploader-name">Episode 2 (9) • 30 November 2024</p>
+                    </div>
+                </a>
+        
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS3" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi_webp/4_WDJOBdmvs/hqdefault.webp" alt="Thumbnail 3" class="thumbnail">
+                        <span class="duration">12.00</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Si Kaca Besar dan Si Langka Elegan, Dan masinis terlalu ramah</h2>
+                        <p class="uploader-name">Episode 3 (10) • 1 Desember 2024</p>
+                    </div>
+                </a>
+        
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS4" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi/nnrMqDNj0gM/hqdefault.jpg" alt="Thumbnail 4" class="thumbnail">
+                        <span class="duration">14.00</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Collab Terakhir, Pertama Sendiri.</h2>
+                        <p class="uploader-name">Episode 4 (11) • 18 Januari 2025</p>
+                    </div>
+                </a>
+        
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS5" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi_webp/L_zyG4F2ao0/hqdefault.webp" alt="Thumbnail 5" class="thumbnail">
+                        <span class="duration">16.11</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Mencoba jadi film. Barat Stasiun Yogyakarta</h2>
+                        <p class="uploader-name">Episode 5 (12) • 15 Februari 2025</p>
+                    </div>
+                </a>
+        
+                <a href="https://sites.google.com/view/allwayseveroriginals/youtube-series/jvt/JVT2/EPS5" class="video-item">
+                    <div class="thumbnail-container">
+                        <img src="https://i.ytimg.com/vi_webp/DfeaiRs_Jzo/hqdefault.webp" alt="Thumbnail 5" class="thumbnail">
+                        <span class="duration">15.08</span>
+                    </div>
+                    <div class="video-details-item">
+                        <h2 class="video-title">Tugas kelompok. Pergi ke pasar Giwangan</h2>
+                        <p class="uploader-name">Episode 6 (13) • 15 Februari 2025</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
