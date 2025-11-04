@@ -7,9 +7,9 @@
     <style>
         /* CSS dari home header.html */
 body {
-    background-color: #0f0f0f;
+    background-color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E */
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
     text-align: left;
     margin: 0; /* Pastikan ini 0 */
     padding: 0; /* Pastikan ini 0 */
@@ -118,7 +118,7 @@ body {
     .video-item-episode {
         height: 240px; /* Atur tinggi agar sesuai rasio 3:4 dari lebar default 180px */
         background-color: #000;
-        border-radius: 10px;
+        border-radius: 12px; /* UPGRADE: Minimal 12px */
         overflow: hidden;
         flex-shrink: 0;
     }
@@ -147,7 +147,7 @@ body {
             font-size: 1.5em;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #fff;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
         }
 
         .video-list {
@@ -170,7 +170,7 @@ body {
 
         .video-item {
             height: 320px;
-            background-color: #222;
+            background-color: #212121; /* UPGRADE: SRUI Card/Bubble #212121 */
             border-radius: 25px;
             overflow: hidden;
             flex-shrink: 0;
@@ -206,7 +206,7 @@ body {
         
         /* CSS dari info.html yang sudah diperbaiki */
         .news-card {
-            background-color: #212121;
+            background-color: #212121; /* UPGRADE: SRUI Card/Bubble #212121 */
             border-radius: 25px;
             padding: 20px;
             width: 350px;
@@ -226,7 +226,7 @@ body {
         .news-title {
             font-size: 1.2em;
             font-weight: bold;
-            color: white;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
         }
 
         .news-date {
@@ -235,19 +235,19 @@ body {
         }
 
         .news-info {
-            color: white;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
             margin-bottom: 1px;
         }
         
         .news-link {
             text-align: left;
             margin-top: 20px;
-            color: white;
+            color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
         }
 
         .news-button {
-            background-color: white;
-            color: black;
+            background-color: #ffce00; /* UPGRADE: SRUI Accent #ffce00 untuk CTA */
+            color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E untuk kontras teks */
             border: none;
             padding: 10px 10px;
             border-radius: 25px;
@@ -267,7 +267,7 @@ body {
         
 /* Gaya untuk formulir, disesuaikan dengan gaya news-card */
 .form-card {
-    background-color: #212121;
+    background-color: #212121; /* UPGRADE: SRUI Card/Bubble #212121 */
     border-radius: 25px;
     padding: 20px;
     width: 350px;
@@ -278,13 +278,13 @@ body {
 
 .form-card h1, .form-card p {
     text-align: center;
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
 }
 
 .form-card label {
     display: block;
     margin-bottom: 5px;
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
 }
 
 .form-card input[type="text"],
@@ -294,15 +294,15 @@ body {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 25px;
-    border: 1px solid #555;
+    border: 1px solid #3d3d3d; /* UPGRADE: SRUI Neutral 1 #3d3d3d */
     background-color: #333;
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
     box-sizing: border-box;
 }
 
 .form-card button {
-    background-color: #fff;
-    color: #0f0f0f;
+    background-color: #ffce00; /* UPGRADE: SRUI Accent #ffce00 untuk CTA */
+    color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E untuk kontras teks */
     border: none;
     padding: 15px 10px;
     border-radius: 25px;
@@ -315,8 +315,8 @@ body {
 
 /* Gaya untuk tombol changelog */
 .changelog-button {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffce00; /* UPGRADE: SRUI Accent #ffce00 untuk CTA */
+    color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E untuk kontras teks */
     border: none;
     padding: 10px 59px;
     border-radius: 25px;
@@ -342,8 +342,8 @@ margin-bottom: 20px;
 }
 
 .popup-content {
-    background-color: #0f0f0f;
-    color: #fff;
+    background-color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E */
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
     padding: 20px;
     border-radius: 25px;
     width: 90%;
@@ -356,7 +356,7 @@ margin-bottom: 20px;
 
 /* Gaya untuk setiap kartu changelog */
 .changelog-card {
-    background-color: #252525; /* Sesuaikan dengan warna kartu lainnya */
+    background-color: #212121; /* UPGRADE: SRUI Card/Bubble #212121 */
     border-radius: 25px;
     padding: 20px;
     margin-bottom: 20px; /* Jarak antara setiap kartu */
@@ -366,7 +366,7 @@ margin-bottom: 20px;
     font-size: 1.5em;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
 }
 
 .changelog-card h3 {
@@ -384,7 +384,7 @@ margin-bottom: 20px;
 }
 
 .changelog-card b {
-    color:#fff
+    color:#f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
 }
 
 .popup-close {
@@ -398,35 +398,31 @@ margin-bottom: 20px;
 }
 
 .popup-close:hover {
-    color: #fff;
+    color: #f1f1f1; /* UPGRADE: SRUI Text #f1f1f1 */
 }
-        
-        .footer {
-            /* Gaya untuk footer */
-            background-color: #0f0f0f;
-            color: #777;
-            font-family: Arial, sans-serif;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-        }
 
-        .footer-text {
-            /* Gaya untuk teks di dalam footer */
-            margin: 0;
-            font-size: 14px;
-         }
+.footer { /* Gaya untuk footer */
+    background-color: #1B1C1E; /* UPGRADE: SRUI Background #1B1C1E */
+    color: #777;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-text { /* Gaya untuk teks di dalam footer */
+    margin: 0;
+    font-size: 14px;
+}
     </style>
 </head>
 <body>
-<div class="container">
-</div>
 
     <div class="carousel-container">
 <div class="carousel-item active">
